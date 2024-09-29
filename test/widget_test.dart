@@ -7,17 +7,25 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:flutterconflatam_accesibility/data/speakers_repository.dart';
 
 import 'package:flutterconflatam_accesibility/main.dart';
+import 'package:mocktail/mocktail.dart';
+
+class MockSpeakersRepository extends Mock implements SpeakersRepository {}
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const FlutterConfLatamApp());
+    await tester.pumpWidget(
+      FlutterConfLatamApp(
+        speakersRepository: MockSpeakersRepository(),
+      ),
+    );
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    expect(find.text('1'), meetsGuideline(textContrastGuideline));
 
     // Tap the '+' icon and trigger a frame.
     await tester.tap(find.byIcon(Icons.add));

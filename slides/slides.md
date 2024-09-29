@@ -62,6 +62,7 @@ Slidev is a slides maker and presenter designed for developers, consist of the f
 - 📤 **Portable** - export to PDF, PPTX, PNGs, or even a hostable SPA
 - 🛠 **Hackable** - virtually anything that's possible on a webpage is possible in Slidev
 <br>
+
 <br>
 
 Read more about [Why Slidev?](https://sli.dev/guide/why)
@@ -135,7 +136,7 @@ The title will be inferred from your slide content, or you can override it with 
 
 ---
 layout: image-right
-image: https://cover.sli.dev
+image: <https://cover.sli.dev>
 ---
 
 # Code
@@ -198,7 +199,7 @@ Powered by [shiki-magic-move](https://shiki-magic-move.netlify.app/), Slidev sup
 Add multiple code blocks and wrap them with <code>````md magic-move</code> (four backticks) to enable the magic move. For example:
 
 ````md magic-move {lines: true}
-```ts {*|2|*}
+```dart {*|2|*}
 // step 1
 const author = reactive({
   name: 'John Doe',
@@ -552,9 +553,13 @@ database "MySql" {
 Learn more: [Mermaid Diagrams](https://sli.dev/features/mermaid) and [PlantUML Diagrams](https://sli.dev/features/plantuml)
 
 ---
+
 foo: bar
 dragPos:
   square: 691,32,167,_,-16
+---
+dragPos:
+  square: -5,0,0,0
 ---
 
 # Draggable Elements
@@ -597,9 +602,11 @@ Double-click on the draggable elements to edit their positions.
 <v-drag-arrow pos="67,452,435,30" two-way op70 />
 
 ---
+
 src: ./pages/imported-slides.md
 hide: false
 ---
+
 
 ---
 
@@ -628,6 +635,7 @@ console.log(emptyArray<number>(10).reduce(fib => [...fib, fib.at(-1)! + fib.at(-
 ```
 
 ---
+
 layout: center
 class: text-center
 ---
