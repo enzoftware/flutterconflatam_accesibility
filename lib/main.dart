@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterconflatam_accesibility/data/speakers_repository.dart';
+import 'package:flutterconflatam_accesibility/ui/bloc/speakers_bloc.dart';
 import 'package:flutterconflatam_accesibility/ui/speakers_list_view.dart';
 
 void main() {
@@ -14,18 +16,16 @@ class FlutterConfLatamApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'FlutterConfLatam',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: const Text('FlutterConf Latam 2024'),
+    return BlocProvider(
+      create: (context) =>
+          SpeakersBloc(speakersRepository)..add(const FetchSpeakers()),
+      child: MaterialApp(
+        title: 'FlutterConfLatam',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightBlue),
+          useMaterial3: true,
         ),
-        body: SpeakersListView(repository: speakersRepository),
+        home: SpeakersView(speakersRepository: speakersRepository),
       ),
     );
   }
