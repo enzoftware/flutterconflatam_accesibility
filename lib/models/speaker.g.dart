@@ -12,6 +12,7 @@ Speaker _$SpeakerFromJson(Map<String, dynamic> json) => Speaker(
       company: json['company'] as String,
       country: json['country'] as String,
       flagEmoji: json['flag_emoji'] as String,
+      picture: json['profile_picture'] as String,
     );
 
 Map<String, dynamic> _$SpeakerToJson(Speaker instance) => <String, dynamic>{
@@ -20,4 +21,5 @@ Map<String, dynamic> _$SpeakerToJson(Speaker instance) => <String, dynamic>{
       'company': instance.company,
       'country': instance.country,
       'flag_emoji': instance.flagEmoji,
+      'profile_picture': instance.picture,
     };

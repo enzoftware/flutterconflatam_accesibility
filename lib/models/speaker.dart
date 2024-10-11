@@ -11,6 +11,7 @@ class Speaker extends Equatable {
     required this.company,
     required this.country,
     required this.flagEmoji,
+    required this.picture,
   });
 
   final String name;
@@ -20,6 +21,9 @@ class Speaker extends Equatable {
 
   @JsonKey(name: 'flag_emoji')
   final String flagEmoji;
+
+  @JsonKey(name: 'profile_picture')
+  final String picture;
 
   factory Speaker.fromJson(Map<String, dynamic> json) =>
       _$SpeakerFromJson(json);
@@ -38,5 +42,6 @@ class Speaker extends Equatable {
         company,
         country,
         flagEmoji,
+        picture,
       ];
 }
