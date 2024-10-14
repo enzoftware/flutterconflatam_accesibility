@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterconflatam_accesibility/data/speakers_repository.dart';
+import 'package:flutterconflatam_accesibility/models/speaker.dart';
 import 'package:flutterconflatam_accesibility/ui/bloc/speakers_bloc.dart';
 import 'package:flutterconflatam_accesibility/ui/speaker_detail_view.dart';
 import 'package:flutterconflatam_accesibility/ui/speaker_item.dart';
@@ -32,36 +33,8 @@ class SpeakersView extends StatelessWidget {
                       (SpeakersBloc bloc) =>
                           (bloc.state as SpeakersDataLoaded).favoriteSpeakers,
                     );
-                    return Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Center(
-                          child: Text(
-                            'Speakers Favoritos',
-                            style: TextStyle(
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 16),
-                        SizedBox(
-                          height: 400,
-                          child: ListView.builder(
-                            itemCount: scheduledSpeakers.length,
-                            itemBuilder: (context, index) {
-                              final speaker = scheduledSpeakers[index];
-                              return SpeakerItem(
-                                speaker: speaker,
-                                onTap: () {},
-                                onFavoriteTap: () {},
-                                isFavorite: true,
-                              );
-                            },
-                          ),
-                        ),
-                      ],
+                    return _FavoriteSpeakersView(
+                      scheduledSpeakers: scheduledSpeakers,
                     );
                   },
                 ),
@@ -70,6 +43,49 @@ class SpeakersView extends StatelessWidget {
           );
         },
       ),
+    );
+  }
+}
+
+class _FavoriteSpeakersView extends StatelessWidget {
+  const _FavoriteSpeakersView({
+    required this.scheduledSpeakers,
+  });
+
+  final List<Speaker> scheduledSpeakers;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Center(
+          child: Text(
+            'Speakers Favoritos',
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+        const SizedBox(height: 16),
+        SizedBox(
+          height: 400,
+          child: ListView.builder(
+            itemCount: scheduledSpeakers.length,
+            itemBuilder: (context, index) {
+              final speaker = scheduledSpeakers[index];
+              return SpeakerItem(
+                speaker: speaker,
+                onTap: () {},
+                onFavoriteTap: () {},
+                isFavorite: true,
+              );
+            },
+          ),
+        ),
+      ],
     );
   }
 }

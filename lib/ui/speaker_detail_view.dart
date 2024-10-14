@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterconflatam_accesibility/models/speaker.dart';
@@ -11,7 +9,6 @@ class SpeakerDetailView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    log(speaker.toJson().toString());
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
