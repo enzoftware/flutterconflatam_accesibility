@@ -15,16 +15,19 @@ class SpeakerDetailView extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 8.0),
-          child: CachedNetworkImage(
-            imageUrl: speaker.picture,
-            placeholder: (context, url) => const CircularProgressIndicator(),
-            errorWidget: (context, url, error) => const Icon(Icons.error),
+          child: Semantics(
+            label: 'Imagen de perfil de ${speaker.name}',
+            child: CachedNetworkImage(
+              imageUrl: speaker.picture,
+              placeholder: (context, url) => const CircularProgressIndicator(),
+              errorWidget: (context, url, error) => const Icon(Icons.error),
+            ),
           ),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text('Nombre'),
+            const Text('Nombre:'),
             const SizedBox(width: 8),
             Text(speaker.name),
           ],
@@ -50,13 +53,16 @@ class SpeakerDetailView extends StatelessWidget {
             ),
           ],
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Text('Compañia'),
-            const SizedBox(width: 8),
-            Text(speaker.company),
-          ],
+        ExcludeSemantics(
+          excluding: speaker.company.isEmpty,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text('Compañia'),
+              const SizedBox(width: 8),
+              Text(speaker.company),
+            ],
+          ),
         ),
       ],
     );

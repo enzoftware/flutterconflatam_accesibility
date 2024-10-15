@@ -28,9 +28,11 @@ class SpeakerItem extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Text(
-                    speaker.flagEmoji,
-                    style: const TextStyle(fontSize: 30),
+                  ExcludeSemantics(
+                    child: Text(
+                      speaker.flagEmoji,
+                      style: const TextStyle(fontSize: 30),
+                    ),
                   ),
                   const SizedBox(width: 16),
                   Text(
