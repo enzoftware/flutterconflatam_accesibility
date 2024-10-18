@@ -20,7 +20,7 @@ class SpeakersView extends StatelessWidget {
       ),
       body: const SpeakersListView(),
       floatingActionButton: FloatingActionButton(
-        tooltip: 'Ver Speakers Favoritos',
+        tooltip: 'Ver Ponentes Favoritos',
         child: const Icon(Icons.schedule),
         onPressed: () {
           showModalBottomSheet(
