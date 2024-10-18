@@ -21,6 +21,7 @@ class FlutterConfLatamApp extends StatelessWidget {
           SpeakersBloc(speakersRepository)..add(const FetchSpeakers()),
       child: MaterialApp(
         title: 'FlutterConfLatam',
+        // showSemanticsDebugger: true,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightBlue),
           useMaterial3: true,
