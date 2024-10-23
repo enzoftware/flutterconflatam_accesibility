@@ -20,9 +20,12 @@ themeConfig:
 
 <FlutterConfLatamLogo />
 
-# Flutter Accesibility
+<v-clicks>
 
+# Accesibilidad en Flutter
 Primeros pasos para lograr aplicaciones accessibles
+
+</v-clicks>
 
 <!--
 Notes:
@@ -42,10 +45,6 @@ social1: @enzoftware
 ---
 
 <FlutterConfLatamLogo />
-
-
-
-
 
 
 ---
@@ -72,6 +71,16 @@ transition: fade-out
 <!--
 Notes:
 
+- 📝 Definición: Introducción a qué es accesibilidad (A11Y) y por qué es importante en el desarrollo de aplicaciones Flutter.
+- 🎨 Estándares A11Y: Explicación de los estándares de accesibilidad, como WCAG y cómo aplicarlos en nuestras aplicaciones.
+- 🧑‍💻 Tamaños de fuente: Recomendaciones de tamaño de fuente según las guías de WCAG y cómo evitar problemas como el desbordamiento de texto en Flutter.
+- 🎥 Contraste de pantalla: Explicación de la importancia del contraste de color y cómo garantizar que el texto sea legible para personas con discapacidades visuales.
+- 🏋️‍♂️ Semantic Widgets: Uso de widgets semánticos en Flutter como Semantics, MergeSemantics, y ExcludeSemantics para mejorar la accesibilidad.
+- 🤓 Herramientas: Presentación de las herramientas y paquetes que nos permiten analizar y mejorar la accesibilidad en Flutter, como accessibility_tools.
+- 👍 Best practices: Prácticas recomendadas para garantizar que tu aplicación Flutter sea accesible desde el inicio.
+- 🛠 Testing: Cómo probar los widgets semánticos para asegurarnos de que cumplen con las pautas de accesibilidad y son usables con lectores de pantalla.
+- 🤹 Activando screen readers: Explicación de cómo funcionan los lectores de pantalla (TalkBack en Android y VoiceOver en iOS) en combinación con Flutter.
+- Bonus: Probando accesibilidad en la web: Breve demostración de cómo probar accesibilidad cuando desarrollas aplicaciones Flutter para la web.
 -->
 
 ---
@@ -80,20 +89,49 @@ transition: fade-out
 
 # Definicion
 
+![data](/assets/data.webp)
+
 
 <!--
 Notes:
-
--
+Level A
+The minimum level of accessibility, addressing the most fundamental considerations for a wide range of users.
+Level AA
+A level of accessibility that works for most devices and assistive technologies, such as screen readers. This is the level that most organizations aim for, and is commonly included in regulations or legal agreements.
+Level AAA
+The highest level of conformance, providing accessibility for the widest range of users. However, it isn't always practical or necessary in every situation.
 -->
 
 
+---
+transition: fade-out
+layout: image-right
+image: https://miro.medium.com/v2/format:webp/0*il0WGc8SDQKjfIwV.gif
+---
+
+# a11y
+
+<v-clicks>
+
+- 🌎 4.5% de la población mundial tiene problemas visuales ([Color Blind Awareness](https://www.colourblindawareness.org/colour-blindness/))
+- 🦾 Aproximadamente 1,000 millones de personas viven con alguna forma de discapacidad.
+- ⚪️ Proporcionar suficiente [contraste](https://webaim.org/resources/contrastchecker/)
+- 👨‍⚖️ En muchos países, como en los EE.UU. existen leyes que exigen que las aplicaciones sean accesibles, o las empresas podrían enfrentar sanciones legales.
+
+</v-clicks>
+
+<!--
+Notes:
+- Proporcionar accesibilidad asegura que las aplicaciones móviles lleguen a más usuarios.
+-->
 ---
 transition: fade-out
 ---
 
 # A11Y
 
+![contrast](https://developer.android.com/static/images/guide/topics/ui/accessibility/color-contrast.svg)
+
 
 <!--
 Notes:
@@ -103,16 +141,27 @@ Notes:
 
 ---
 transition: fade-out
+layout: image-right
+image: /assets/abuela.webp
 ---
 
 # Tamaños de fuente
+<v-clicks>
 
+- WCAG recomienda un tamaño mínimo de fuente de 16px (aprox. 12pt) para mantener la legibilidad.
+- `TextOverflow.ellipsis` en Flutter corta el texto largo con “…” para evitar que desborde su contenedor.
+- Usa `Flexible` o `Expanded` para evitar que textos dentro de un `Row` causen overflows.
+- Siempre prueba tu aplicación con configuraciones de tamaño de texto grande en dispositivos reales para asegurar que no se rompa la UI.
+
+</v-clicks>
 
 <!--
 Notes:
 
 -
 -->
+
+
 
 ---
 layout: image-right
@@ -126,7 +175,7 @@ image: /assets/talkback.png
 
 - TalkBack (Android) & VoiceOver (iOS) son los lectores de pantalla.
 - Permite navegar la aplicación mediante gestos.
-- S
+- Los widgets básicos de Flutter ya contienen información accesible que es interpretada por estas herramientas sin la necesidad de configuraciones adicionales.
 
 </v-clicks>
 <!--
@@ -141,6 +190,8 @@ transition: fade-out
 ---
 
 # `Semantics` Widgets
+
+- `label`: La descripción del elemento para el lector de pantalla. En este caso, se describe el item con el nombre del speaker.
 
 ````md magic-move {lines: false}
 ```dart
@@ -166,6 +217,9 @@ return Semantics(
 ```
 ````
 
+
+
+
 <!--
 Notes:
 - showSemanticsDebugger
@@ -177,8 +231,23 @@ Notes:
 transition: fade-out
 ---
 
+# 🏋️‍♂️ Widget Tree
+
+<img src="/assets/wtree.png" class="h100"/>
+
+
+<!--
+Notes:
+
+-
+-->
+---
+transition: fade-out
+---
+
 # 🏋️‍♂️ Semantics Tree
 
+<img src="/assets/stree.png" class="h100"/>
 
 
 <!--
@@ -228,6 +297,8 @@ transition: fade-out
 ---
 
 # Semantic Widgets: `MergeSemantics`
+
+
 
 
 <!--
@@ -289,7 +360,7 @@ transition: fade-out
 image: /assets/tools.png
 ---
 
-# Herramientas
+# [`accessibility_tools`](https://pub.dev/packages/accessibility_tools)
 
 - Agregar la dependencia en `pubspec.yaml`
 ```yaml
@@ -321,7 +392,7 @@ transition: fade-out
 image: /assets/tools.png
 ---
 
-# Herramientas : accesibility_tools
+# [`accessibility_tools`](https://pub.dev/packages/accessibility_tools)
 
 - Configurar `AccesibilityTools` dentro de `MaterialApp`.
 
@@ -355,7 +426,7 @@ Notes:
 transition: fade-out
 ---
 
-# Testing
+# Unit Testing
 
 
 ```dart {*|2,3|5,6|7-10|12-15|17-18|19|*}
@@ -391,9 +462,11 @@ Notes:
 
 ---
 transition: fade-out
+layout: image-right
+image: /assets/webaccessibility.png
 ---
 
-# Bonus: Utilizando Accesibilidad en la Web
+# **Bonus**: Utilizando Accesibilidad en la Web
 
 ```bash
 flutter run -d chrome --profile --dart-define=FLUTTER_WEB_DEBUG_SHOW_SEMANTICS=true
@@ -405,13 +478,31 @@ Notes:
 - How to use screen readers on devices (Android)
 -->
 ---
-layout: center
 transition: fade-out
 ---
 
-# Gracias
-- GitHub - @enzoftware
-- X - @enzoftware
+# Conclusiones
+
+- **Accesibilidad es clave para todos**: Asegurar que las aplicaciones sean accesibles no solo beneficia a las personas con discapacidades, sino que puede expandir el mercado de tu producto.
+- **A11Y no es complicado**: Flutter ofrece herramientas como `Semantics` y `accessibility_tools` que hacen fácil implementar accesibilidad sin mucho esfuerzo adicional.
+- **Escalabilidad y Legibilidad**: Asegúrate de que los textos y elementos interactivos se adapten al tamaño de pantalla y ajustes de accesibilidad del dispositivo sin romper el diseño.
+- **Cumplimiento de estándares**: Cumplir con guías como WCAG no es solo una recomendación, sino que puede ser una exigencia legal en muchos países.
+- **Testing**: Usa los guidelines de accesibilidad para asegurarte de que tu aplicación pasa las pruebas de accesibilidad y sea fácil de usar para todos.
+<!--
+Notes:
+
+- VoiceOver & TalkBack
+- How to use screen readers on devices (Android)
+-->
+---
+layout: about-me
+helloMsg: Gracias!
+transition: fade-out
+name: @enzoftware
+imageSrc: /assets/repo.png
+---
+
+
 <!--
 Notes:
 
