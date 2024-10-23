@@ -1,38 +1,52 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
-import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:flutterconflatam_accesibility/data/speakers_data.dart';
 import 'package:flutterconflatam_accesibility/data/speakers_repository.dart';
-
 import 'package:flutterconflatam_accesibility/main.dart';
+import 'package:flutterconflatam_accesibility/models/speaker.dart';
+import 'package:flutterconflatam_accesibility/ui/bloc/speakers_bloc.dart';
 import 'package:mocktail/mocktail.dart';
 
 class MockSpeakersRepository extends Mock implements SpeakersRepository {}
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
+  late final SpeakersRepository repository;
+
+  setUp(() {
+    repository = MockSpeakersRepository();
+
+    when(() => repository.fetchSpeakers()).thenAnswer(
+      (_) async => speakersData.map((s) => Speaker.fromJson(s)).toList(),
+    );
+  });
+
+  testWidgets('FlutterConfLatamApp meets a11y guidelines', (tester) async {
+    final SemanticsHandle handle = tester.ensureSemantics();
+
     await tester.pumpWidget(
-      FlutterConfLatamApp(
-        speakersRepository: MockSpeakersRepository(),
+      BlocProvider(
+        create: (_) => SpeakersBloc(repository)..add(const FetchSpeakers()),
+        child: FlutterConfLatamApp(
+          speakersRepository: repository,
+        ),
       ),
     );
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), meetsGuideline(textContrastGuideline));
+    expect(find.bySemanticsLabel('Cargando speakers'), findsOneWidget);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
+    await tester.pumpAndSettle();
+
+    final finder = find.bySemanticsLabel('Boton favorito Desactivado').first;
+    await tester.tap(finder);
     await tester.pump();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    expect(
+      tester.getSemantics(find.text('Mike Diarmid')),
+      matchesSemantics(label: 'Mike Diarmid - UK'),
+    );
+
+    expect(tester, meetsGuideline(androidTapTargetGuideline));
+    expect(tester, meetsGuideline(textContrastGuideline));
+    handle.dispose();
   });
 }

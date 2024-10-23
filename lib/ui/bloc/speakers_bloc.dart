@@ -29,15 +29,16 @@ class SpeakersBloc extends Bloc<SpeakersEvent, SpeakersState> {
     ToggleScheduleSpeaker event,
     Emitter<SpeakersState> emit,
   ) {
-    final s = state as SpeakersDataLoaded;
-
-    if (s.favoriteSpeakers.contains(event.speaker)) {
-      final favs = List<Speaker>.from(s.favoriteSpeakers)
-        ..remove(event.speaker);
-      emit(s.copyWith(favoriteSpeakers: favs));
-    } else {
-      final favs = List<Speaker>.from(s.favoriteSpeakers)..add(event.speaker);
-      emit(s.copyWith(favoriteSpeakers: favs));
+    if (state is SpeakersDataLoaded) {
+      final s = state as SpeakersDataLoaded;
+      if (s.favoriteSpeakers.contains(event.speaker)) {
+        final favs = List<Speaker>.from(s.favoriteSpeakers)
+          ..remove(event.speaker);
+        emit(s.copyWith(favoriteSpeakers: favs));
+      } else {
+        final favs = List<Speaker>.from(s.favoriteSpeakers)..add(event.speaker);
+        emit(s.copyWith(favoriteSpeakers: favs));
+      }
     }
   }
 }

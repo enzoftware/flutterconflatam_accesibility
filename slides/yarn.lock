@@ -1079,6 +1079,15 @@
   dependencies:
     roughjs "^4.6.6"
 
+"@slidev/theme-apple-basic@^0.25.1":
+  version "0.25.1"
+  resolved "https://registry.yarnpkg.com/@slidev/theme-apple-basic/-/theme-apple-basic-0.25.1.tgz#ef0c236870ffffddaad0a4df7e2f569a200d05a5"
+  integrity sha512-saA5yYui+jTT13tP+QJKnWeM8sK0IA1iln2E3sWAJsfKdQHUD3fw8+AlUHLUH6yc8NPq3ewtZcwWx49a/iF8Tg==
+  dependencies:
+    "@slidev/types" "^0.47.0"
+    codemirror-theme-vars "^0.1.2"
+    prism-theme-vars "^0.2.4"
+
 "@slidev/theme-default@latest":
   version "0.25.0"
   resolved "https://registry.yarnpkg.com/@slidev/theme-default/-/theme-default-0.25.0.tgz#3006e3b20af497a27240091731fc3b056f780b28"
@@ -1097,7 +1106,7 @@
     codemirror-theme-vars "^0.1.2"
     prism-theme-vars "^0.2.4"
 
-"@slidev/types@0.49.29":
+"@slidev/types@0.49.29", "@slidev/types@^0.49.0":
   version "0.49.29"
   resolved "https://registry.yarnpkg.com/@slidev/types/-/types-0.49.29.tgz#e129b1635099bc9f3cbb84ba16b255db2f546deb"
   integrity sha512-xfUcW+zcZU/vzd4WMkZxnAbZbdI0faOPll1A0viXHqR8BlQhZxBV49kCreGl8NK4kd/+oJ/kM5gOXCwDQve0RQ==
@@ -1944,7 +1953,7 @@ clone-regexp@^3.0.0:
   dependencies:
     is-regexp "^3.0.0"
 
-codemirror-theme-vars@^0.1.2:
+codemirror-theme-vars@^0.1.1, codemirror-theme-vars@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/codemirror-theme-vars/-/codemirror-theme-vars-0.1.2.tgz#60db6877d16a400809e919b9bec33d72dbab1dfa"
   integrity sha512-WTau8X2q58b0SOAY9DO+iQVw8JKVEgyQIqArp2D732tcc+pobbMta3bnVMdQdmgwuvNrOFFr6HoxPRoQOgooFA==
@@ -4447,6 +4456,16 @@ slash@^5.1.0:
   resolved "https://registry.yarnpkg.com/slash/-/slash-5.1.0.tgz#be3adddcdf09ac38eebe8dcdc7b1a57a75b095ce"
   integrity sha512-ZA6oR3T/pEyuqwMgAKT0/hAv8oAXckzbkmR0UkUosQ+Mc4RxGoJkRmwHgHufaenlyAgE1Mxgpdcrf75y6XcnDg==
 
+slidev-theme-the-unnamed@^0.0.21:
+  version "0.0.21"
+  resolved "https://registry.yarnpkg.com/slidev-theme-the-unnamed/-/slidev-theme-the-unnamed-0.0.21.tgz#ecb329da24f451d7002ab2ba536fae32441029cb"
+  integrity sha512-le+a8eJL0KKdnOXbZj6DcTNUyxrInf2G+3BQ4s6/DdIYn+BT8ZYed+pFKVNmerYbEUR7HLnF6roX0n1QfHLbAQ==
+  dependencies:
+    "@slidev/types" "^0.49.0"
+    codemirror-theme-vars "^0.1.1"
+    prism-theme-vars "^0.2.4"
+    theme-vitesse "^0.6.2"
+
 source-map-js@^1.0.1, source-map-js@^1.2.0, source-map-js@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/source-map-js/-/source-map-js-1.2.1.tgz#1ce5650fddd87abc099eda37dcff024c2667ae46"
@@ -4565,6 +4584,11 @@ tar@^6.2.0:
     minizlib "^2.1.1"
     mkdirp "^1.0.3"
     yallist "^4.0.0"
+
+theme-vitesse@^0.6.2:
+  version "0.6.4"
+  resolved "https://registry.yarnpkg.com/theme-vitesse/-/theme-vitesse-0.6.4.tgz#6dcbe2b2cbcf80b62eb33dfec405b3f93cbfed08"
+  integrity sha512-uCn8emUUfEOKoukSZz0GqxB5q+gQ2wVEXx6+cCKWbXIjW56afkozVdosVSqXkRuML7i77tMmzMbvzcY/2uc01w==
 
 time-span@^5.1.0:
   version "5.1.0"

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterconflatam_accesibility/data/speakers_repository.dart';
 import 'package:flutterconflatam_accesibility/models/speaker.dart';
@@ -16,33 +17,44 @@ class SpeakersView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('FlutterConf Latam 2024'),
+        title: Semantics(
+          header: true,
+          sortKey: const OrdinalSortKey(0),
+          child: const Text('FlutterConf Latam 2024'),
+        ),
       ),
-      body: const SpeakersListView(),
-      floatingActionButton: FloatingActionButton(
-        tooltip: 'Ver Ponentes Favoritos',
-        child: const Icon(Icons.schedule),
-        onPressed: () {
-          showModalBottomSheet(
-            context: context,
-            builder: (context) {
-              return BlocProvider.value(
-                value: context.read<SpeakersBloc>(),
-                child: BlocBuilder<SpeakersBloc, SpeakersState>(
-                  builder: (context, state) {
-                    final scheduledSpeakers = context.select(
-                      (SpeakersBloc bloc) =>
-                          (bloc.state as SpeakersDataLoaded).favoriteSpeakers,
-                    );
-                    return _FavoriteSpeakersView(
-                      scheduledSpeakers: scheduledSpeakers,
-                    );
-                  },
-                ),
-              );
-            },
-          );
-        },
+      body: Semantics(
+        sortKey: const OrdinalSortKey(2),
+        child: const SpeakersListView(),
+      ),
+      floatingActionButton: Semantics(
+        sortKey: const OrdinalSortKey(1),
+        button: true,
+        child: FloatingActionButton(
+          tooltip: 'Ver Ponentes Favoritos',
+          child: const Icon(Icons.schedule),
+          onPressed: () {
+            showModalBottomSheet(
+              context: context,
+              builder: (context) {
+                return BlocProvider.value(
+                  value: context.read<SpeakersBloc>(),
+                  child: BlocBuilder<SpeakersBloc, SpeakersState>(
+                    builder: (context, state) {
+                      final scheduledSpeakers = context.select(
+                        (SpeakersBloc bloc) =>
+                            (bloc.state as SpeakersDataLoaded).favoriteSpeakers,
+                      );
+                      return _FavoriteSpeakersView(
+                        scheduledSpeakers: scheduledSpeakers,
+                      );
+                    },
+                  ),
+                );
+              },
+            );
+          },
+        ),
       ),
     );
   }
@@ -97,44 +109,64 @@ class SpeakersListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final state = context.select((SpeakersBloc bloc) => bloc.state);
-    if (state is SpeakersLoading) {
-      return const Center(child: CircularProgressIndicator.adaptive());
-    }
-    if (state is SpeakersDataLoaded) {
-      final speakers = state.fullSpeakers;
-      final favorites = state.favoriteSpeakers;
-      return ListView.builder(
-        shrinkWrap: true,
-        itemCount: speakers.length,
-        itemBuilder: (context, index) {
-          final speaker = speakers[index];
-          final isFavorite = favorites.contains(speaker);
-          return Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0),
-            child: SpeakerItem(
-              speaker: speaker,
-              isFavorite: isFavorite,
-              onFavoriteTap: () {
-                context
-                    .read<SpeakersBloc>()
-                    .add(ToggleScheduleSpeaker(speaker: speaker));
-              },
-              onTap: () {
-                showDialog(
-                  context: context,
-                  builder: (context) {
-                    return AlertDialog(
-                      title: const Text('Detalles speaker'),
-                      content: SpeakerDetailView(speaker: speaker),
-                    );
-                  },
-                );
-              },
-            ),
-          );
-        },
-      );
-    }
-    return const SizedBox();
+
+    return switch (state) {
+      SpeakersLoading() => const Center(
+          child: CircularProgressIndicator.adaptive(
+            semanticsLabel: 'Cargando speakers',
+          ),
+        ),
+      SpeakersDataLoaded() => SpeakerListViewDataLoaded(
+          speakers: state.fullSpeakers,
+          favorites: state.favoriteSpeakers,
+        ),
+    };
+  }
+}
+
+class SpeakerListViewDataLoaded extends StatelessWidget {
+  const SpeakerListViewDataLoaded({
+    super.key,
+    required this.speakers,
+    required this.favorites,
+  });
+
+  final List<Speaker> speakers;
+  final List<Speaker> favorites;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      shrinkWrap: true,
+      itemCount: speakers.length,
+      itemBuilder: (context, index) {
+        final speaker = speakers[index];
+        final isFavorite = favorites.contains(speaker);
+        return Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
+          child: SpeakerItem(
+            speaker: speaker,
+            isFavorite: isFavorite,
+            onFavoriteTap: () {
+              context
+                  .read<SpeakersBloc>()
+                  .add(ToggleScheduleSpeaker(speaker: speaker));
+            },
+            onTap: () {
+              debugDumpSemanticsTree();
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    title: const Text('Detalles speaker'),
+                    content: SpeakerDetailView(speaker: speaker),
+                  );
+                },
+              );
+            },
+          ),
+        );
+      },
+    );
   }
 }

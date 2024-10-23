@@ -10,6 +10,7 @@ environment:
   sdk: ^3.5.1
 
 dependencies:
+  accessibility_tools: ^2.2.3
   flutter:
     sdk: flutter
 
@@ -26,6 +27,7 @@ dependencies:
 dev_dependencies:
   json_serializable: ^6.8.0
   build_runner: 2.4.12
+
   flutter_test:
     sdk: flutter
 
