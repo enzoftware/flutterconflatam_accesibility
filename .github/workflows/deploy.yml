@@ -26,20 +26,23 @@ jobs:
           node-version: 'lts/*'
 
       - name: Setup @antfu/ni
+        working-directory: ./slides  # Move to the /slides folder
         run: npm i -g @antfu/ni
 
       - name: Install dependencies
+        working-directory: ./slides  # Run in the /slides folder
         run: nci
 
       - name: Build
-        run: nr build --base /${{github.event.repository.name}}/slides/
+        working-directory: ./slides  # Build from the /slides folder
+        run: nr build --base /${{github.event.repository.name}}/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: slides/dist  # Specify the correct path to the built files
 
   deploy:
     environment:
