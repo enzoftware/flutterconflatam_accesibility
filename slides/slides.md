@@ -58,12 +58,10 @@ transition: fade-out
 - 📝 **Definicion**
 - 🎨 **Estandares A11y**
 - 🧑‍💻 **Tamaños de fuente**
-- 🎥 **Contraste de pantalla**
+- 🤹 **Utilizando lectores de pantalla**
 - 🏋️‍♂️ **Semantic Widgets**
-- 📤 **Herramientas**
-- 💀 **Best practices**
-- 🛠 **Testing**
-- 🤹 **Activando screen readers**
+- 📤 **accesibility_tools**
+- 🛠 **Unit Testing**
 - 🛠 **Bonus: Probando accesibilidad en la web**
 
 </v-clicks>
@@ -298,7 +296,46 @@ transition: fade-out
 
 # Semantic Widgets: `MergeSemantics`
 
-
+````md magic-move
+```dart
+return Row(
+  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  children: [
+    Text(
+      title,
+      style: const TextStyle(fontWeight: FontWeight.bold),
+    ),
+    const SizedBox(width: 8),
+    Flexible(
+      child: Text(
+        text,
+        overflow: TextOverflow.ellipsis,
+      ),
+    ),
+  ],
+);
+```
+```dart
+return MergeSemantics(
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      Text(
+        title,
+        style: const TextStyle(fontWeight: FontWeight.bold),
+      ),
+      const SizedBox(width: 8),
+      Flexible(
+        child: Text(
+          text,
+          overflow: TextOverflow.ellipsis,
+        ),
+      ),
+    ],
+  ),
+);
+```
+````
 
 
 <!--

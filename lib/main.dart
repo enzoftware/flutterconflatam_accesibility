@@ -33,7 +33,10 @@ class MyAccessibleFlutterConfLatamApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      builder: (context, child) => AccessibilityTools(child: child),
+      builder: (context, child) => AccessibilityTools(
+        buttonsAlignment: ButtonsAlignment.bottomLeft,
+        child: child,
+      ),
       home: SpeakersView(speakersRepository: speakersRepository),
     );
   }

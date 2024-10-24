@@ -35,7 +35,6 @@ class SpeakerItem extends StatelessWidget {
 
 class _SpeakerListTile extends StatelessWidget {
   const _SpeakerListTile({
-    super.key,
     required this.onTap,
     required this.speaker,
     required this.onFavoriteTap,

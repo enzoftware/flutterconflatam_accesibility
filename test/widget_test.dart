@@ -41,8 +41,8 @@ void main() {
     await tester.pump();
 
     expect(
-      tester.getSemantics(find.text('Mike Diarmid')),
-      matchesSemantics(label: 'Mike Diarmid - UK'),
+      tester.getSemantics(find.text('Leigha Reid')),
+      matchesSemantics(label: 'Leigha Reid - USA'),
     );
 
     expect(tester, meetsGuideline(androidTapTargetGuideline));

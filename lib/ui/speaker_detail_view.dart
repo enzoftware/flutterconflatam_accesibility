@@ -19,7 +19,9 @@ class SpeakerDetailView extends StatelessWidget {
             label: 'Imagen de perfil de ${speaker.name}',
             child: CachedNetworkImage(
               imageUrl: speaker.picture,
-              placeholder: (context, url) => const CircularProgressIndicator(),
+              placeholder: (context, url) => const Center(
+                child: CircularProgressIndicator(),
+              ),
               errorWidget: (context, url, error) => const Icon(Icons.error),
             ),
           ),
@@ -44,21 +46,23 @@ class SpeakerDetailItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          title,
-          style: const TextStyle(fontWeight: FontWeight.bold),
-        ),
-        const SizedBox(width: 8),
-        Flexible(
-          child: Text(
-            text,
-            overflow: TextOverflow.ellipsis,
+    return MergeSemantics(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            title,
+            style: const TextStyle(fontWeight: FontWeight.bold),
           ),
-        ),
-      ],
+          const SizedBox(width: 8),
+          Flexible(
+            child: Text(
+              text,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
