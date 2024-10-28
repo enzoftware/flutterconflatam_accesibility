@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterconflatam_accesibility/data/speakers_repository.dart';
 import 'package:flutterconflatam_accesibility/models/speaker.dart';
