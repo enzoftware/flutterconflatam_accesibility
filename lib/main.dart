@@ -1,7 +1,4 @@
-import 'package:accessibility_tools/accessibility_tools.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/semantics.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterconflatam_accesibility/data/speakers_repository.dart';
 import 'package:flutterconflatam_accesibility/ui/bloc/speakers_bloc.dart';
@@ -17,9 +14,6 @@ void main() {
       ),
     ),
   );
-  if (kIsWeb) {
-    SemanticsBinding.instance.ensureSemantics();
-  }
 }
 
 class MyAccessibleFlutterConfLatamApp extends StatelessWidget {
@@ -33,10 +27,6 @@ class MyAccessibleFlutterConfLatamApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      builder: (context, child) => AccessibilityTools(
-        buttonsAlignment: ButtonsAlignment.bottomLeft,
-        child: child,
-      ),
       home: SpeakersView(speakersRepository: speakersRepository),
     );
   }
@@ -51,7 +41,6 @@ class FlutterConfLatamApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'FlutterConfLatam',
-      // showSemanticsDebugger: true,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightBlue),
         useMaterial3: true,

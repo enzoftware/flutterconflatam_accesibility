@@ -17,44 +17,33 @@ class SpeakersView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Semantics(
-          header: true,
-          sortKey: const OrdinalSortKey(0),
-          child: const Text('FlutterConf Latam 2024'),
-        ),
+        title: const Text('FlutterConf Latam 2024'),
       ),
-      body: Semantics(
-        sortKey: const OrdinalSortKey(2),
-        child: const SpeakersListView(),
-      ),
-      floatingActionButton: Semantics(
-        sortKey: const OrdinalSortKey(1),
-        button: true,
-        child: FloatingActionButton(
-          tooltip: 'Ver Ponentes Favoritos',
-          child: const Icon(Icons.schedule),
-          onPressed: () {
-            showModalBottomSheet(
-              context: context,
-              builder: (context) {
-                return BlocProvider.value(
-                  value: context.read<SpeakersBloc>(),
-                  child: BlocBuilder<SpeakersBloc, SpeakersState>(
-                    builder: (context, state) {
-                      final scheduledSpeakers = context.select(
-                        (SpeakersBloc bloc) =>
-                            (bloc.state as SpeakersDataLoaded).favoriteSpeakers,
-                      );
-                      return _FavoriteSpeakersView(
-                        scheduledSpeakers: scheduledSpeakers,
-                      );
-                    },
-                  ),
-                );
-              },
-            );
-          },
-        ),
+      body: const SpeakersListView(),
+      floatingActionButton: FloatingActionButton(
+        tooltip: 'Ver Ponentes Favoritos',
+        child: const Icon(Icons.schedule),
+        onPressed: () {
+          showModalBottomSheet(
+            context: context,
+            builder: (context) {
+              return BlocProvider.value(
+                value: context.read<SpeakersBloc>(),
+                child: BlocBuilder<SpeakersBloc, SpeakersState>(
+                  builder: (context, state) {
+                    final scheduledSpeakers = context.select(
+                      (SpeakersBloc bloc) =>
+                          (bloc.state as SpeakersDataLoaded).favoriteSpeakers,
+                    );
+                    return _FavoriteSpeakersView(
+                      scheduledSpeakers: scheduledSpeakers,
+                    );
+                  },
+                ),
+              );
+            },
+          );
+        },
       ),
     );
   }
@@ -112,9 +101,7 @@ class SpeakersListView extends StatelessWidget {
 
     return switch (state) {
       SpeakersLoading() => const Center(
-          child: CircularProgressIndicator.adaptive(
-            semanticsLabel: 'Cargando speakers',
-          ),
+          child: CircularProgressIndicator.adaptive(),
         ),
       SpeakersDataLoaded() => SpeakerListViewDataLoaded(
           speakers: state.fullSpeakers,
@@ -153,7 +140,6 @@ class SpeakerListViewDataLoaded extends StatelessWidget {
                   .add(ToggleScheduleSpeaker(speaker: speaker));
             },
             onTap: () {
-              debugDumpSemanticsTree();
               showDialog(
                 context: context,
                 builder: (context) {

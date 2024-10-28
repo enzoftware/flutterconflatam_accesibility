@@ -19,16 +19,12 @@ class SpeakerItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final label = isFavorite ? 'Activado' : 'Desactivado';
 
-    // TODO(a11y): Show speaker name as accesibility label for the item.
-    return Semantics(
-      label: speaker.name,
-      child: _SpeakerListTile(
-        onTap: onTap,
-        speaker: speaker,
-        onFavoriteTap: onFavoriteTap,
-        isFavorite: isFavorite,
-        label: label,
-      ),
+    return _SpeakerListTile(
+      onTap: onTap,
+      speaker: speaker,
+      onFavoriteTap: onFavoriteTap,
+      isFavorite: isFavorite,
+      label: label,
     );
   }
 }
@@ -62,19 +58,14 @@ class _SpeakerListTile extends StatelessWidget {
               Expanded(
                 child: Row(
                   children: [
-                    // TODO(a11y) : Exclude flag emoji from the accesibility
-                    ExcludeSemantics(
-                      child: Text(
-                        speaker.flagEmoji,
-                        style: const TextStyle(fontSize: 30),
-                      ),
+                    Text(
+                      speaker.flagEmoji,
+                      style: const TextStyle(fontSize: 30),
                     ),
                     const SizedBox(width: 8),
                     Expanded(
                       child: Text(
                         speaker.name,
-                        semanticsLabel: '${speaker.name} - ${speaker.country}',
-                        overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
@@ -87,14 +78,8 @@ class _SpeakerListTile extends StatelessWidget {
               const SizedBox(width: 8),
               IconButton.outlined(
                 onPressed: onFavoriteTap,
-                icon: SizedBox.square(
-                  dimension: 48,
-                  child: Icon(
-                    isFavorite
-                        ? Icons.favorite
-                        : Icons.favorite_border_outlined,
-                    semanticLabel: 'Boton favorito $label',
-                  ),
+                icon: Icon(
+                  isFavorite ? Icons.favorite : Icons.favorite_border_outlined,
                 ),
               )
             ],
