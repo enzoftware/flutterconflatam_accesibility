@@ -69,8 +69,6 @@ transition: fade-out
 
 <!--
 Notes:
-
-- 📝 Definición: Introducción a qué es accesibilidad (A11Y) y por qué es importante en el desarrollo de aplicaciones Flutter.
 - 🎨 Estándares A11Y: Explicación de los estándares de accesibilidad, como WCAG y cómo aplicarlos en nuestras aplicaciones.
 - 🧑‍💻 Tamaños de fuente: Recomendaciones de tamaño de fuente según las guías de WCAG y cómo evitar problemas como el desbordamiento de texto en Flutter.
 - 🎥 Contraste de pantalla: Explicación de la importancia del contraste de color y cómo garantizar que el texto sea legible para personas con discapacidades visuales.
@@ -82,40 +80,21 @@ Notes:
 - Bonus: Probando accesibilidad en la web: Breve demostración de cómo probar accesibilidad cuando desarrollas aplicaciones Flutter para la web.
 -->
 
----
-transition: fade-out
----
-
-# Definición
-
-![data](/assets/data.webp)
-
-
-<!--
-Notes:
-Level A
-The minimum level of accessibility, addressing the most fundamental considerations for a wide range of users.
-Level AA
-A level of accessibility that works for most devices and assistive technologies, such as screen readers. This is the level that most organizations aim for, and is commonly included in regulations or legal agreements.
-Level AAA
-The highest level of conformance, providing accessibility for the widest range of users. However, it isn't always practical or necessary in every situation.
--->
 
 
 ---
 transition: fade-out
 layout: image-right
-image: https://miro.medium.com/v2/format:webp/0*il0WGc8SDQKjfIwV.gif
+image: /assets/data.webp
 ---
 
-# a11y
+# A11Y
 
 <v-clicks>
 
 - 🌎 4.5% de la población mundial tiene problemas visuales ([Color Blind Awareness](https://www.colourblindawareness.org/colour-blindness/))
 - 🦾 Aproximadamente 1,000 millones de personas viven con alguna forma de discapacidad.
 - 👨‍⚖️ En muchos países, como en los EE.UU. existen leyes que exigen que las aplicaciones sean accesibles, o las empresas podrían enfrentar sanciones legales.
-- ⚪️ Proporcionar suficiente [contraste](https://webaim.org/resources/contrastchecker/)
 
 </v-clicks>
 
@@ -123,12 +102,18 @@ image: https://miro.medium.com/v2/format:webp/0*il0WGc8SDQKjfIwV.gif
 Notes:
 - Proporcionar accesibilidad asegura que las aplicaciones móviles lleguen a más usuarios.
 - Otros numerismos l10n - localization o i18n - internazionalization
+- Level A
+The minimum level of accessibility, addressing the most fundamental considerations for a wide range of users.
+- Level AA
+A level of accessibility that works for most devices and assistive technologies, such as screen readers. This is the level that most organizations aim for, and is commonly included in regulations or legal agreements.
+- Level AAA
+The highest level of conformance, providing accessibility for the widest range of users. However, it isn't always practical or necessary in every situation.
 -->
 ---
 transition: fade-out
 ---
 
-# A11Y
+# Proporcionar suficiente [contraste](https://webaim.org/resources/contrastchecker/)
 
 ![contrast](https://developer.android.com/static/images/guide/topics/ui/accessibility/color-contrast.svg)
 
@@ -200,6 +185,42 @@ Notes:
 
 ---
 transition: fade-out
+layout: image-right
+image: /assets/widgettree.jpg
+---
+
+# 🦋 Widget Tree
+
+- Representación de la estructura de la interfaz.
+- Maneja las actualizaciones de manera eficiente.
+- Controla el estado de los widgets que estan dentro.
+
+
+<!--
+Notes:
+
+-
+-->
+---
+transition: fade-out
+layout: image-right
+image: /assets/semantictree.png
+---
+
+# 🌳 Semantics Tree
+
+- Enfoque en la Accesibilidad
+- Se genera a partir del Widget Tree, pero omite los elementos visuales no esenciales.
+- Semantic Nodes - puntos de referencia para herramientas de accesibilidad, permitiendo interacciones fluidas y contextuales en la app.
+
+<!--
+Notes:
+
+-
+-->
+
+---
+transition: fade-out
 ---
 
 # `Semantics` Widgets
@@ -240,34 +261,6 @@ Notes:
 - Used by assistive technologies, search engines, and other semantic analysis software to determine the meaning of the application.
 -->
 
----
-transition: fade-out
----
-
-# 🏋️‍♂️ Widget Tree
-
-<img src="/assets/wtree.png" class="h100"/>
-
-
-<!--
-Notes:
-
--
--->
----
-transition: fade-out
----
-
-# 🏋️‍♂️ Semantics Tree
-
-<img src="/assets/stree.png" class="h100"/>
-
-
-<!--
-Notes:
-
--
--->
 
 
 ---
@@ -279,7 +272,7 @@ transition: fade-out
 - Excluir widget del arbol semantico
 
 ````md magic-move
-```dart {*|1|*}
+```dart {*|1,5|*}
 ExcludeSemantics(
   child: Text(
     speaker.flagEmoji,
