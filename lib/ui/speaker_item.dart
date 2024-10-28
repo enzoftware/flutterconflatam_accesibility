@@ -20,15 +20,12 @@ class SpeakerItem extends StatelessWidget {
     final label = isFavorite ? 'Activado' : 'Desactivado';
 
     // TODO(a11y): Show speaker name as accesibility label for the item.
-    return Semantics(
-      label: speaker.name,
-      child: _SpeakerListTile(
-        onTap: onTap,
-        speaker: speaker,
-        onFavoriteTap: onFavoriteTap,
-        isFavorite: isFavorite,
-        label: label,
-      ),
+    return _SpeakerListTile(
+      onTap: onTap,
+      speaker: speaker,
+      onFavoriteTap: onFavoriteTap,
+      isFavorite: isFavorite,
+      label: label,
     );
   }
 }
@@ -62,7 +59,6 @@ class _SpeakerListTile extends StatelessWidget {
               Expanded(
                 child: Row(
                   children: [
-                    // TODO(a11y) : Exclude flag emoji from the accesibility
                     ExcludeSemantics(
                       child: Text(
                         speaker.flagEmoji,

@@ -41,8 +41,11 @@ void main() {
     await tester.pump();
 
     expect(
-      tester.getSemantics(find.text('Leigha Reid')),
-      matchesSemantics(label: 'Leigha Reid - USA'),
+      tester.getSemantics(find.text('FlutterConf Latam 2024')),
+      matchesSemantics(
+        label: 'App Spekaer FlutterConf Latam 2024',
+        isHeader: true,
+      ),
     );
 
     expect(tester, meetsGuideline(androidTapTargetGuideline));

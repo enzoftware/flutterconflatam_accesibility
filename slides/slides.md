@@ -249,6 +249,56 @@ return Semantics(
   ),
 );
 ```
+
+```dart
+Text(
+  speaker.name,
+  semanticsLabel:'${speaker.name}  ${speaker.country}',
+  overflow: TextOverflow.ellipsis,
+  style: const TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.bold,
+  ),
+),
+```
+```dart
+CircularProgressIndicator.adaptive(
+  semanticsLabel: 'Cargando speakers',
+),
+```
+```dart
+FloatingActionButton(
+  tooltip: 'Ver Ponentes Favoritos',
+  child: const Icon(Icons.schedule),
+  ...
+)
+```
+```dart {*|2|*}
+Semantics(
+  header: true,
+  child: const Text('FlutterConf Latam 2024'),
+),
+```
+```dart
+Semantics(
+  ...
+  bool? enabled,
+  bool? checked,
+  bool? mixed,
+  bool? selected,
+  bool? toggled,
+  bool? button,
+  bool? slider,
+  bool? keyboardKey,
+  bool? link,
+  bool? header,
+  bool? textField,
+  bool? readOnly,
+  bool? focusable,
+  bool? focused,
+  ...
+)
+```
 ````
 
 
@@ -474,10 +524,9 @@ transition: fade-out
 # Unit Testing
 
 
-```dart {*|2,3|5,6|7-10|12-15|17-18|19|*}
+```dart {*|2|4,5|7-10|11-17|19-20|21|*}
 testWidgets('FlutterConfLatamApp meets a11y guidelines', (tester) async {
   final SemanticsHandle handle = tester.ensureSemantics();
-  await tester.pumpWidget(...);
 
   expect(find.bySemanticsLabel('Cargando speakers'), findsOneWidget);
   await tester.pumpAndSettle();
@@ -487,8 +536,11 @@ testWidgets('FlutterConfLatamApp meets a11y guidelines', (tester) async {
   await tester.pump();
 
   expect(
-    tester.getSemantics(find.text('Mike Diarmid')),
-    containsSemantics(label: 'Mike Diarmid - UK'),
+    tester.getSemantics(find.text('FlutterConf Latam 2024')),
+    matchesSemantics(
+      label: 'App Spekaer FlutterConf Latam 2024',
+      isHeader: true,
+    ),
   );
 
   expect(tester, meetsGuideline(androidTapTargetGuideline));

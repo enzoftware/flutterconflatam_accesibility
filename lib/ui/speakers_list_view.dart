@@ -20,7 +20,10 @@ class SpeakersView extends StatelessWidget {
         title: Semantics(
           header: true,
           sortKey: const OrdinalSortKey(0),
-          child: const Text('FlutterConf Latam 2024'),
+          child: const Text(
+            'FlutterConf Latam 2024',
+            semanticsLabel: 'App Spekaer FlutterConf Latam 2024',
+          ),
         ),
       ),
       body: Semantics(
