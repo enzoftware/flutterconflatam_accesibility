@@ -13,9 +13,9 @@ themeConfig:
   center-background: "#0B121D"
   cover-background: "#0B121D"
   section-background: "#0B121D"
-  aboutme-background: "#0B121D"
+  aboutme-background: "#ffffff"
   default-headingBg: "#127CE4"
-  aboutme-color: "#ffffff"
+  aboutme-color: "#000000"
 ---
 
 <FlutterConfLatamLogo />
@@ -36,6 +36,7 @@ Notes:
 
 ---
 layout: about-me
+background: "#ffffff"
 helloMsg: Hola!
 transition: fade-out
 name: Enzo Lizama Paredes
@@ -62,7 +63,7 @@ transition: fade-out
 - 🏋️‍♂️ **Semantic Widgets**
 - 📤 **accesibility_tools**
 - 🛠 **Unit Testing**
-- 🛠 **Bonus: Probando accesibilidad en la web**
+- 🕸️ **Bonus: Probando accesibilidad en la web**
 
 </v-clicks>
 
@@ -85,7 +86,7 @@ Notes:
 transition: fade-out
 ---
 
-# Definicion
+# Definición
 
 ![data](/assets/data.webp)
 
@@ -113,14 +114,15 @@ image: https://miro.medium.com/v2/format:webp/0*il0WGc8SDQKjfIwV.gif
 
 - 🌎 4.5% de la población mundial tiene problemas visuales ([Color Blind Awareness](https://www.colourblindawareness.org/colour-blindness/))
 - 🦾 Aproximadamente 1,000 millones de personas viven con alguna forma de discapacidad.
-- ⚪️ Proporcionar suficiente [contraste](https://webaim.org/resources/contrastchecker/)
 - 👨‍⚖️ En muchos países, como en los EE.UU. existen leyes que exigen que las aplicaciones sean accesibles, o las empresas podrían enfrentar sanciones legales.
+- ⚪️ Proporcionar suficiente [contraste](https://webaim.org/resources/contrastchecker/)
 
 </v-clicks>
 
 <!--
 Notes:
 - Proporcionar accesibilidad asegura que las aplicaciones móviles lleguen a más usuarios.
+- Otros numerismos l10n - localization o i18n - internazionalization
 -->
 ---
 transition: fade-out
@@ -147,16 +149,16 @@ image: /assets/abuela.webp
 <v-clicks>
 
 - WCAG recomienda un tamaño mínimo de fuente de 16px (aprox. 12pt) para mantener la legibilidad.
-- `TextOverflow.ellipsis` en Flutter corta el texto largo con “…” para evitar que desborde su contenedor.
-- Usa `Flexible` o `Expanded` para evitar que textos dentro de un `Row` causen overflows.
 - Siempre prueba tu aplicación con configuraciones de tamaño de texto grande en dispositivos reales para asegurar que no se rompa la UI.
+
 
 </v-clicks>
 
 <!--
 Notes:
-
--
+- - `TextOverflow.ellipsis` en Flutter corta el texto largo con “…” para evitar que desborde su contenedor.
+- Flexible widget
+- Lo siguiente es ir un paso más alla.
 -->
 
 
@@ -178,7 +180,20 @@ image: /assets/talkback.png
 </v-clicks>
 <!--
 Notes:
+- VoiceOver & TalkBack
+- How to use screen readers on devices (Android)
+-->
 
+---
+layout: section
+transition: fade-out
+---
+
+# Revisando la aplicación
+Encontrando elementos de mejora utilizando lectores de pantalla
+
+<!--
+Notes:
 - VoiceOver & TalkBack
 - How to use screen readers on devices (Android)
 -->
