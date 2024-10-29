@@ -15,8 +15,12 @@ class SpeakersView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.blue,
         centerTitle: true,
-        title: const Text('FlutterConf Latam 2024'),
+        title: Image.asset(
+          'assets/fcl.png',
+          height: 50,
+        ),
       ),
       body: const SpeakersListView(),
       floatingActionButton: FloatingActionButton(
