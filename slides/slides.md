@@ -85,7 +85,7 @@ Notes:
 ---
 transition: fade-out
 layout: image-right
-image: /assets/data.webp
+image: /assets/accessible.gif
 ---
 
 # A11Y
@@ -582,9 +582,21 @@ transition: fade-out
 
 - **Accesibilidad es clave para todos**: Asegurar que las aplicaciones sean accesibles no solo beneficia a las personas con discapacidades, sino que puede expandir el mercado de tu producto.
 - **A11Y no es complicado**: Flutter ofrece herramientas como `Semantics` y `accessibility_tools` que hacen fácil implementar accesibilidad sin mucho esfuerzo adicional.
-- **Escalabilidad y Legibilidad**: Asegúrate de que los textos y elementos interactivos se adapten al tamaño de pantalla y ajustes de accesibilidad del dispositivo sin romper el diseño.
-- **Cumplimiento de estándares**: Cumplir con guías como WCAG no es solo una recomendación, sino que puede ser una exigencia legal en muchos países.
 - **Testing**: Usa los guidelines de accesibilidad para asegurarte de que tu aplicación pasa las pruebas de accesibilidad y sea fácil de usar para todos.
+<!--
+Notes:
+
+- VoiceOver & TalkBack
+- How to use screen readers on devices (Android)
+-->
+
+---
+layout: center
+transition: fade-out
+---
+
+<img src="/assets/repo.png" width="300" />
+
 <!--
 Notes:
 
@@ -596,7 +608,7 @@ layout: about-me
 helloMsg: Gracias!
 transition: fade-out
 name: @enzoftware
-imageSrc: /assets/repo.png
+imageSrc: /assets/dashlove.png
 ---
 
 
