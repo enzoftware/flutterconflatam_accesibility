@@ -1,21 +1,12 @@
 final speakersData = [
   {
-    "name": "Mike Diarmid",
-    "position": "CTO & Co-Founder",
-    "company": "Invertase",
-    "country": "UK",
-    "flag_emoji": "\uD83C\uDDEC\uD83C\uDDE7",
-    "profile_picture":
-        "https://framerusercontent.com/images/VdbWiVMeiJ1vBvNesoUbO9wcsI.png",
-  },
-  {
     "name": "Leigha Reid",
     "position": "Head of Product & DevRel",
     "company": "FlutterFlow",
     "country": "USA",
     "flag_emoji": "\uD83C\uDDFA\uD83C\uDDF8",
     "profile_picture":
-        "https://framerusercontent.com/images/VdbWiVMeiJ1vBvNesoUbO9wcsI.png",
+        "https://framerusercontent.com/images/JZNshtmrj9mg1VobpewZ4HMbw.png",
   },
   {
     "name": "Majid Hajian",
@@ -33,7 +24,7 @@ final speakersData = [
     "country": "Mexico",
     "flag_emoji": "\uD83C\uDDF2\uD83C\uDDFD",
     "profile_picture":
-        "https://framerusercontent.com/images/VdbWiVMeiJ1vBvNesoUbO9wcsI.png",
+        "https://framerusercontent.com/images/OyFCxUUz63NhiETwJrJK4vmpHo.png",
   },
   {
     "name": "Diego Velasquez",
@@ -42,7 +33,7 @@ final speakersData = [
     "country": "Peru",
     "flag_emoji": "\uD83C\uDDF5\uD83C\uDDEA",
     "profile_picture":
-        "https://framerusercontent.com/images/VdbWiVMeiJ1vBvNesoUbO9wcsI.png",
+        "https://framerusercontent.com/images/sdUKOdz7jk2PczP7UfUBya63OGY.png",
   },
   {
     "name": "Gianfranco Papa",
@@ -51,7 +42,7 @@ final speakersData = [
     "country": "Uruguay",
     "flag_emoji": "\uD83C\uDDFA\uD83C\uDDFE",
     "profile_picture":
-        "https://framerusercontent.com/images/VdbWiVMeiJ1vBvNesoUbO9wcsI.png",
+        "https://framerusercontent.com/images/Suh89E5be5EosaINtKkAbHBgIo4.png",
   },
   {
     "name": "Ryan Edge",
@@ -60,7 +51,7 @@ final speakersData = [
     "country": "USA",
     "flag_emoji": "\uD83C\uDDFA\uD83C\uDDF8",
     "profile_picture":
-        "https://framerusercontent.com/images/VdbWiVMeiJ1vBvNesoUbO9wcsI.png",
+        "https://framerusercontent.com/images/XzyGT303UMQ1MZI8ehiM00l7k.png",
   },
   {
     "name": "Bettina Carrizo",
@@ -69,7 +60,7 @@ final speakersData = [
     "country": "Uruguay",
     "flag_emoji": "\uD83C\uDDFA\uD83C\uDDFE",
     "profile_picture":
-        "https://framerusercontent.com/images/VdbWiVMeiJ1vBvNesoUbO9wcsI.png",
+        "https://framerusercontent.com/images/UwwakiXsQxkbCIxbmSaNGFxwFAk.png",
   },
   {
     "name": "Daniel Herrera",
@@ -78,7 +69,7 @@ final speakersData = [
     "country": "Colombia",
     "flag_emoji": "\uD83C\uDDE8\uD83C\uDDF4",
     "profile_picture":
-        "https://framerusercontent.com/images/VdbWiVMeiJ1vBvNesoUbO9wcsI.png",
+        "https://framerusercontent.com/images/oj90g6iECC0M7wzo1zDxa0hII.png",
   },
   {
     "name": "Roman Jaquez",
@@ -87,7 +78,7 @@ final speakersData = [
     "country": "USA",
     "flag_emoji": "\uD83C\uDDFA\uD83C\uDDF8",
     "profile_picture":
-        "https://framerusercontent.com/images/VdbWiVMeiJ1vBvNesoUbO9wcsI.png",
+        "https://framerusercontent.com/images/FoHNcEcxcIDYnLPWFMAtkhrkWho.png",
   },
   {
     "name": "Antonio Guzmán",
@@ -96,16 +87,16 @@ final speakersData = [
     "country": "Mexico",
     "flag_emoji": "\uD83C\uDDF2\uD83C\uDDFD",
     "profile_picture":
-        "https://framerusercontent.com/images/VdbWiVMeiJ1vBvNesoUbO9wcsI.png",
+        "https://framerusercontent.com/images/xqOOijYJalMuxLF32SVK2WbFMU.png",
   },
   {
     "name": "Leo Farias",
     "position": "CEO & Co-Founder",
-    "company": "Concepto",
+    "company": "Concepta",
     "country": "Brazil",
     "flag_emoji": "\uD83C\uDDE7\uD83C\uDDF7",
     "profile_picture":
-        "https://framerusercontent.com/images/VdbWiVMeiJ1vBvNesoUbO9wcsI.png",
+        "https://framerusercontent.com/images/XkfDuaAsw49ci0utfQspvoUUEC4.png",
   },
   {
     "name": "Sasha Denisov",
@@ -114,7 +105,7 @@ final speakersData = [
     "country": "Germany",
     "flag_emoji": "\uD83C\uDDE9\uD83C\uDDEA",
     "profile_picture":
-        "https://framerusercontent.com/images/VdbWiVMeiJ1vBvNesoUbO9wcsI.png",
+        "https://framerusercontent.com/images/bm8MISOhsAiHFt4Rz41u6AbCTI.png",
   },
   {
     "name": "Andrea Cornejo",
@@ -123,34 +114,43 @@ final speakersData = [
     "country": "Bolivia",
     "flag_emoji": "\uD83C\uDDE7\uD83C\uDDF4",
     "profile_picture":
-        "https://framerusercontent.com/images/VdbWiVMeiJ1vBvNesoUbO9wcsI.png",
+        "https://framerusercontent.com/images/5U7EK8WT91CRhyvQeQbTpAs39A.png?scale-down-to=512",
   },
   {
     "name": "Frank Moreno",
     "position": "Software Engineer | Flutter & Rust lover",
     "company": "OSS contributor",
-    "country": "France",
-    "flag_emoji": "\uD83C\uDDEB\uD83C\uDDF7",
+    "country": "Peru",
+    "flag_emoji": "\uD83C\uDDF5\uD83C\uDDEA",
     "profile_picture":
-        "https://framerusercontent.com/images/VdbWiVMeiJ1vBvNesoUbO9wcsI.png",
+        "https://framerusercontent.com/images/Ithv6sQkvHelPkoNO9lpqeGxfnA.jpeg",
   },
   {
-    "name": "Fabián Varela Bonett",
+    "name": "Mauricio Pastorini",
+    "position": "CEO & Co-Founder",
+    "company": "Somnio Software | Organizer @flutter_uruguay",
+    "country": "Uruguay",
+    "flag_emoji": "\uD83C\uDDFA\uD83C\uDDFE",
+    "profile_picture":
+        "https://framerusercontent.com/images/c3ay4wxEnqRrRSiv919CR1XNVhc.png",
+  },
+  {
+    "name": "Fabian Varela Bonett",
     "position": "Software Developer | Organizer",
     "company": "Flutter Colombia community",
     "country": "Colombia",
     "flag_emoji": "\uD83C\uDDE8\uD83C\uDDF4",
     "profile_picture":
-        "https://framerusercontent.com/images/VdbWiVMeiJ1vBvNesoUbO9wcsI.png",
+        "https://framerusercontent.com/images/oGRb1qFH7NPkSZeTrf5EkfZQ0Dw.jpg",
   },
   {
     "name": "Brian Castillo",
     "position": "Google Developer Expert (GDE) in Firebase",
     "company": "Gull Mobility Ventures",
-    "country": "France",
-    "flag_emoji": "\uD83C\uDDEB\uD83C\uDDF7",
+    "country": "Peru",
+    "flag_emoji": "\uD83C\uDDF5\uD83C\uDDEA",
     "profile_picture":
-        "https://framerusercontent.com/images/VdbWiVMeiJ1vBvNesoUbO9wcsI.png",
+        "https://framerusercontent.com/images/FG35kOSNic1zlQmkAzqYpdu8YNA.jpg",
   },
   {
     "name": "John Ryan",
@@ -159,16 +159,16 @@ final speakersData = [
     "country": "USA",
     "flag_emoji": "\uD83C\uDDFA\uD83C\uDDF8",
     "profile_picture":
-        "https://framerusercontent.com/images/VdbWiVMeiJ1vBvNesoUbO9wcsI.png",
+        "https://framerusercontent.com/images/BaCMSSRdZmwxL9yZqXOHHm6Gu40.jpg",
   },
   {
     "name": "Enzo Lizama",
     "position": "Mobile Software Engineer",
     "company": "",
-    "country": "France",
-    "flag_emoji": "\uD83C\uDDEB\uD83C\uDDF7",
+    "country": "Peru",
+    "flag_emoji": "\uD83C\uDDF5\uD83C\uDDEA",
     "profile_picture":
-        "https://framerusercontent.com/images/VdbWiVMeiJ1vBvNesoUbO9wcsI.png",
+        "https://framerusercontent.com/images/B7lLeS8IGJHQsjP5Nf1fBo9yMvA.png",
   },
   {
     "name": "Allan Ramos",
@@ -177,69 +177,6 @@ final speakersData = [
     "country": "Brazil",
     "flag_emoji": "\uD83C\uDDE7\uD83C\uDDF7",
     "profile_picture":
-        "https://framerusercontent.com/images/VdbWiVMeiJ1vBvNesoUbO9wcsI.png",
-  },
-  {
-    "name": "Alejandro Cumpa",
-    "position": "Flutter Developer",
-    "company": "Globant",
-    "country": "Peru",
-    "flag_emoji": "\uD83C\uDDF5\uD83C\uDDEA",
-    "profile_picture":
-        "https://framerusercontent.com/images/VdbWiVMeiJ1vBvNesoUbO9wcsI.png",
-  },
-  {
-    "name": "Jhon Harold Giraldo",
-    "position": "Software Engineer",
-    "company": "Pragma",
-    "country": "Colombia",
-    "flag_emoji": "\uD83C\uDDE8\uD83C\uDDF4",
-    "profile_picture":
-        "https://framerusercontent.com/images/VdbWiVMeiJ1vBvNesoUbO9wcsI.png",
-  },
-  {
-    "name": "Elian Ortega",
-    "position": "Senior Flutter Engineer",
-    "company": "Somnio Software",
-    "country": "El Salvador",
-    "flag_emoji": "\uD83C\uDDF8\uD83C\uDDFB",
-    "profile_picture":
-        "https://framerusercontent.com/images/VdbWiVMeiJ1vBvNesoUbO9wcsI.png",
-  },
-  {
-    "name": "Jean Roldan",
-    "position": "Software Engineer",
-    "company": "DEUNA",
-    "country": "Colombia",
-    "flag_emoji": "\uD83C\uDDE8\uD83C\uDDF4",
-    "profile_picture":
-        "https://framerusercontent.com/images/VdbWiVMeiJ1vBvNesoUbO9wcsI.png",
-  },
-  {
-    "name": "Marcos Sevilla",
-    "position": "Senior Engineer",
-    "company": "VGV",
-    "country": "El Salvador",
-    "flag_emoji": "\uD83C\uDDF8\uD83C\uDDFB",
-    "profile_picture":
-        "https://framerusercontent.com/images/VdbWiVMeiJ1vBvNesoUbO9wcsI.png",
-  },
-  {
-    "name": "Arthur Vásquez",
-    "position": "Mobile Engineer",
-    "company": "",
-    "country": "Peru",
-    "flag_emoji": "\uD83C\uDDF5\uD83C\uDDEA",
-    "profile_picture":
-        "https://framerusercontent.com/images/VdbWiVMeiJ1vBvNesoUbO9wcsI.png",
-  },
-  {
-    "name": "Kevin Morales",
-    "position": "Software Engineer | GDG Tsáchilas Organizer",
-    "company": "",
-    "country": "Ecuador",
-    "flag_emoji": "\uD83C\uDDE8\uD83C\uDDEC",
-    "profile_picture":
-        "https://framerusercontent.com/images/VdbWiVMeiJ1vBvNesoUbO9wcsI.png",
+        "https://framerusercontent.com/images/Yo7Kl6HvfHKQqpAAfvOXbsshFk.png",
   }
 ];
